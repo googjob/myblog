@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="images/fav.ico" />
+    <title>JS04:构建函件</title>
+    <style>
+      .msgBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        background: #eee;
+      }
+      .msgBox p {
+        line-height: 1.5;
+        padding: 10px 20px;
+        color: #333;
+      }
+      .msgBox button {
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Display message box</button>
+    <pre>
+		案例为构建一个函件。实现点击页面按钮，出现一个提示（非弹窗形式），
+		点击关闭提示时，提示消失的效果。
+		知识点：使用到DOM的内置方法
+		1、获取元素的方法 “document.querySelector()”
+		2、给元素添加类的方法 “Node.setAttribute('class','类名')”
+		3、创建元素的方法 “docement.createElement('素材名')”
+		4、给元素添加内容的方法 “Node.textContent('内容')”
+		5、追加子元素的方法 “Node.appendChild()”
+		6、删除元素的方法 “Node>removeChild()”
+		7、函数调用。函数名后面的()括号，叫做“函数调用运算符” function invocation operator 。
+		你只有在想直接调用函数的地方才这样写。同样重视的是，匿名函数里的代码也不是直接运行的，
+		只要代码在函数作用域内。
+	</pre
+    >
+    <script>
+      const btn = document.querySelector("button");
+      btn.onclick = displayMessage; //调用函件时，函件名后为啥没有()括号？？？这是因为我们不想直接调用这个函件 -- 而是只有当按钮被点击时才调用这个函数。
+      function displayMessage() {
+        const html = document.querySelector("html"); //使用内置方法选择html元素放在一个常量中，方便接下来使用这个元素。
+
+        const panel = document.createElement("div"); //使用DOM内置方法创建DIV元素并把该新建元素的引用放在一个常量中。
+        panel.setAttribute("class", "msgBox"); //使用DOM内置方法给panel元素添加一个值为msgBox的class类属性。这样做方便来给元素添加新式
+        html.appendChild(panel); //使用DOM内置方法给html常量追加我们设置好样式的panel元素。该方法追加元素的同时也把panel<div>元素指定为<html>元素的子元素
+
+        const msg = document.createElement("p"); //同理，创建p元素
+        msg.textContent = "This is a message box"; //使用元素的Node.textContent（Node泛指一个元素）属性>>表示一个元素的文本属性--给一个p元素赋值。
+        panel.appendChild(msg); //把P元素追加为div元素的子元素
+
+        const closeBtn = document.createElement("button"); //同理，创建button元素
+        closeBtn.textContent = "x";
+        panel.appendChild(closeBtn); //把button元素追加为div元素的子元素
+
+        closeBtn.onclick = function () {
+          panel.parentNode.removeChild(panel); //onclick句柄是一个按钮的属性（事实上，页面上的任何元素）。当按钮被点击的时候能够执行一些代码。
+        }; //我们给onclick句柄绑定了一个匿名函数，运行代码使用了Node.removeChild()DOM方法指定了我们想要移除的HTML的子元素 -- 在这里指panel<div>.
+      } //panel是消息框，panel.parentNode就是panel的上一级，就是整个DOM，然后再来用这个父亲来干掉这个儿子，儿子不能干掉自己，所以要这么做。
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CCS学习：画五环</title>
+    <link rel="icon" href="images/fav.ico" />
+    <link rel="stylesheet" href="runoob.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .wrapper {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 368px;
+        height: 180px;
+        /* border:1px dashed green; */
+        background-color: #ffe;
+        margin-left: -184px;
+        margin-top: -90px;
+      }
+      .circle1,
+      .circle2,
+      .circle3,
+      .circle4,
+      .circle5 {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border: 10px solid black;
+        border-radius: 50%;
+      }
+      .circle1 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-color: #006bb0; /*蓝色*/
+      }
+      .circle2 {
+        position: absolute;
+        left: 124px;
+        top: 0;
+        border-color: #1d1815; /*黑色*/
+      }
+      .circle3 {
+        position: absolute;
+        left: 248px;
+        top: 0;
+        border-color: #dc2f1f; /*红色*/
+      }
+      .circle4 {
+        position: absolute;
+        left: 62px;
+        top: 60px;
+        border-color: #efa90d; /*黄色*/
+      }
+      .circle5 {
+        position: absolute;
+        left: 186px;
+        top: 60px;
+        border-color: #059341; /*绿色*/
+      }
+    </style>
+    <script>
+      function toShow() {
+        oDiv = document.getElementById("exp");
+        oDiv.style =
+          "display:block; margin-top:200px;background-color:#f40;width:500px;padding:50px;";
+      }
+      function toHidden() {
+        oDiv = document.getElementById("exp");
+        oDiv.style = "display:none";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>使用CSS画五环</h1>
+
+    <p>案例，使用JS实现，鼠标滑入显示内容功能。</p>
+
+    <div
+      class="wrapper"
+      id="wrapper"
+      onmouseover="toShow()"
+      onmouseout="toHidden()"
+    >
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <div class="circle3"></div>
+      <div class="circle4"></div>
+      <div class="circle5"></div>
+      <p id="exp" style="display: none">
+        奥林匹克标志[1] (Olympic Logo /Symbole Olympique/Olympic
+        Rings)是由皮埃尔·德·顾拜旦先生于1913年构思设计的，是由《奥林匹克宪章》确定的，也被称为奥运五环标志，它是世界范围内最为人们广泛认知的奥林匹克运动会标志。它由5个奥林匹克环套接组成，有蓝、黄、黑、绿、红5种颜色。环从左到右互相套接，上面是蓝、黑、红环，下面是是黄、绿环。整个造形为一个底部小的规则梯形。
+      </p>
+    </div>
+  </body>
+</html>

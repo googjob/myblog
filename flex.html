@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/fav.ico" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <!--水平方向属性-->
+      <h2>justify-content：水平方向属性（水平空间位置）</h2>
+      <p>justify-content:center;<br />以元素中轴线为基准，水平居中排列。</p>
+      <p>
+        justify-content:flex-end;<br />默认是flex-start .
+        flex-end,水平靠右排列。
+      </p>
+      <p>
+        justify-content:space-between;<br />在每行上均匀分布弹性元素。相邻元素间距离相同。每行第一个元素与首行对齐，每行最后一个元素与行尾对齐。
+      </p>
+      <p>
+        justify-content:space-around;<br />按元素数量等分盒子后，每个元素在各自空间居中。（水平居中，每个元素两边的空间都相同。）
+        在第行上均匀分布弹性元素。相邻元素间距离相同。每行第一个元素到行首的距离和每行最后一个元素到行尾的距离将会是相邻元素之间距离的一半。
+      </p>
+      <p>
+        justify-content:space-evenly;<br />元素水平居中后，将剩余空间平均分。
+        <br />flex项都沿着主轴均匀分布在指定的对齐容器中。相邻flex项之间的间距，主轴起始位置到第一个flex项的间距，主轴结束位置到最后一个flex项的间距，都完全一样。
+      </p>
+    </div>
+    <div>
+      <!--垂直方向属性-->
+      <h2>align-items：垂直方向属性(垂直空间位置）</h2>
+      <p>align-items:center;<br />纵向水平居中</p>
+      <p>align-items:flex-end;<br />纵向靠下</p>
+      <p>align-items:baseline;<br />???</p>
+      <p>align-items:stretch;<br />垂直方向把盒子拉伸</p>
+    </div>
+    <div>
+      <!--排列的顺序-->
+      <h2>flex-direction：排列的顺序</h2>
+      <p>flex-direction:row(default);<br />默认水平从左向右排列</p>
+      <p>flex-direction:row-reverse;<br />从右往左排列</p>
+      <p>flex-direction:column;<br />从上往下排列</p>
+      <p>flex-direction:column-reverse;<br />从下往上排列</p>
+    </div>
+    <div>
+      <!--调整排列顺序-->
+      <h2>order:单个元素调整排列顺序</h2>
+      <p>oder:1;<br />可实现调整每个元素的位序。</p>
+    </div>
+    <div>
+      <!--align-self调整单个元素位置-->>
+      <h2>align-self:可以用于调整单个元素的位置</h2>
+      <p>align-self:center；单个元素居中</p>
+      <p>align-self:flex-end；单个元素位置底部</p>
+    </div>
+    <div>
+      <!--是否允许换行-->
+      <h2>flex-wrap：是否允许换行</h2>
+      <p>flex-wrap:nowrap;<br />默认不允许换行</p>
+      <p>flex-wrap:wrap;<br />允许换行</p>
+      <p>flex-wrap:wrap-reverse;<br />允许换行，和wrap反向（类似倒影）</p>
+    </div>
+    <div>
+      <!--align-content-->
+      <h2>
+        align-content:<br />属性设置了浏览器如何沿着弹性盒子布局的纵轴和网格布局的主轴在内容项之间和周围分配空间。
+      </h2>
+      <p>align-content:center,<br />居中</p>
+      <p>align-content:flex-start,<br />从左上角开始</p>
+      <p>align-content:flex-end,<br />从左下角正序开始</p>
+      <p>align-content:space-between,<br />排在上面和下面</p>
+    </div>
+  </body>
+</html>

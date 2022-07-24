@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>js学习</title>
+    <link rel="icon" href="images/fav.ico" />
+
+    <style>
+      #div1 {
+        width: 200px;
+        height: 300px;
+        background-color: #e3e3e3;
+      }
+    </style>
+    <script>
+      function toRed() {
+        var oDiv = document.getElementById("div1");
+        oDiv.style.backgroundColor = "green";
+        oDiv.style.width = "400px";
+        oDiv.style.height = "500px";
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      初识JS，记录JS中一些关键的内容。0包罗万相。用归零的心态，让自己的能力往另一个方向生长。
+    </p>
+    <input type="submit" value="to red" onclick="toRed()" />
+    <div id="div1"></div>
+    <span>总之就是Javascript很重要，是基础基础中的基础。也叫ECMAscript</span>
+    <p>js，是解释性语言。看一行，翻译一行，执行一行。</p>
+    <p>优缺点</p>
+    <p>计算机的依次操作的，叫同步；同时操作的，叫异步</p>
+    <p>单线程。轮转时间片</p>
+    <p>
+      ie trident;chrome webkit/blink;firefox Gecto;Opera presto;Safari webkit;
+    </p>
+    <p>动态语言，都是解释性语言，数据类型天生是浮点型。</p>
+    <p>原始值，Number Boolean String undefined null</p>
+    <p>引用值，array Object function ...data RegExp;</p>
+    <p>
+      原始和引用值，存的地方不一样。原始值，存在stack栈里的;first in,last out;
+      ，引用值，存在堆heap里的
+    </p>
+    <p>var a=10; b=10;a=10,栈内存的拷备；引用值时，栈里放的是堆里的地址。</p>
+
+    <script type="text/javascript">
+      var a = 10;
+      var b = ++a - 1 + a++;
+      document.write(b + " " + a);
+      //从右往左执行。b的运算，++a，先计算++，结果是11，a初赋值为11；11-1 + a++；a++ a为11,11-1+11 b的结果是21; a++,输出结果11+1为12；
+      a += 10; // 等于a=a+10;
+      a += 10 + 1; // 运算优选级，
+    </script>
+  </body>
+</html>

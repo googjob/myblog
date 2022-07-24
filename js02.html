@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="images/fav.ico" />
+<title>文档标题</title>
+<style>
+	html {
+	  font-family: sans-serif;
+	}
+	body {
+	  width: 50%;
+	  max-width: 800px;
+	  min-width: 480px;
+	  margin: 0;
+	}
+</style>
+</head>
+<body style="margin:0;padding:0;">
+	<div>
+		<span>案例目标：展示js能做什么？<span>
+		<pre>
+			通过事件，实现对页面的改动，实现动态页面。
+		</pre>
+	</div>
+	<div style="background-color:#f3f3f3;">
+		<p class="fanFou">猜猜饭否代言人是谁？</p>
+		<ul style="font-size:12px;color:rgba(0,0,0,0.5);">
+			<li>获取元素</li>
+			<li>给元素添加监听点击事件，运行输入文字函数</li>
+			<li>定义函数内容为输入文字，将输入的文字修改为元素的新内容</li>
+		</ul>
+	</div>
+	<script>
+		const para = document.querySelector('.fanFou');
+		para.addEventListener('click',updateName);
+		function updateName(){
+		  name = prompt('请输入一个名字');
+		  para.textContent = '我是饭否代言人：' + name;
+		}
+	</script>
+</body>
+
+ </html>

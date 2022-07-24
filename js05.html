@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" href="images/fav.ico" />
+    <title>JS05:构建函件-迭代版</title>
+    <style>  
+      .msgBox {
+	    position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 242px;
+		border-radius:10px;
+		background-color: #eee;
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1));
+	  }/*有调整*/
+	  .msgBox p {
+	    line-height: 1.5;
+		padding: 10px 20px;
+		color: #333;
+		padding-left: 82px;
+		background-position: 25px center;
+		background-repeat: no-repeat;
+	  }/*有调整*/
+	  .msgBox button {
+	    background: none;
+		border: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 1.1rem;
+		color: #aaa;
+	  }
+    </style>
+  </head>
+  <body>
+    <button>Display message box</button>
+	<pre>
+		案例为构建一个函件。实现点击页面按钮，出现一个提示（非弹窗形式），
+		点击关闭提示时，提示消失的效果。
+		知识点：使用到DOM的内置方法
+		1、获取元素的方法 “document.querySelector()”
+		2、给元素添加类的方法 “Node.setAttribute('class','类名')”
+		3、创建元素的方法 “docement.createElement('元素名')”
+		4、给元素添加内容的方法 “Node.textContent('内容')”
+		5、追加子元素的方法 “Node.appendChild()”
+		6、删除元素的方法 “Node>removeChild()”
+		7、函数调用。函数名后面的()括号，叫做“函数调用运算符” function invocation operator 。
+		你只有在想直接调用函数的地方才这样写。同样重视的是，匿名函数里的代码也不是直接运行的，
+		只要代码在函数作用域内。		
+	</pre>
+	<pre>
+		---迭代内容：使用参数列表改进函数。
+		---点击按钮调用函数，函数要放在一个匿名函数中。
+		---给元素添加属性的方法 “Node.style.属性名 = 属性值”
+	<pre>
+	<script>
+		const btn = document.querySelector('button');
+		btn.onclick = function (){
+		  displayMessage('Woo, this is a different message!','warning'); //迭代：要在点击事件绑定这个新函数，不能直接使用（btn.onclick=displayMessage('Woo^-^');
+		};  //前期资料讲过，要把它放在一个匿名函数里面，不然函数会直接调用，而不是按钮点击之后才会调用。
+		function displayMessage(msgText,msgType){  //迭代：增加了参数。来指定显示在消息框中的内容。
+		  const html = document.querySelector('html'); 
+		  
+		  const panel = document.createElement('div'); 
+		  panel.setAttribute('class','msgBox'); 
+		  html.appendChild(panel); 
+		  
+		  const msg = document.createElement('p'); 
+		  msg.textContent = msgText;  //迭代：修改输入数据的内容为msgText
+		  panel.appendChild(msg); 
+		  
+		  const closeBtn = document.createElement('button'); 
+		  closeBtn.textContent = 'x';
+		  panel.appendChild(closeBtn);
+		  
+		  closeBtn.onclick = function(){
+		    panel.parentNode.removeChild(panel);
+		  }
+		  if (msgType === 'warning'){
+		    msg.style.backgroundImage = 'url(warning.png)';
+			panel.style.backgroundColor = 'red'; //迭代：如何第二个参数值为warning，消息框显示一个警告图标和红色背景。
+			msg.style.backgroundSize = '15%';
+		  } else if (msgType === 'chat'){
+		    msg.style.backgroundImage = 'url(chat.png)';
+			panel.style.backgroundColor = 'aqua'; //迭代，如果第二个参数值为chat，消息框显示聊天图标和水蓝色背景。
+			msg.style.backgroundSize = '15%';
+		  } else {
+		    msg.style.paddingLeft = '20px'; //迭代，如果没有任何值，给消息段落设置了一个简单的左内边距并且没有图标，也没有背景色。
+			
+		  }
+		}
+		
+	</script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="images/fav.ico" />
+    <title>初识JS：</title>
+    <style>
+      button {
+        width: 200px;
+        height: 200px;
+        backgroung-color: #fdf;
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      margin: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    "
+  >
+    <button
+      id="dzs"
+      onclick="dianZan()"
+      style="display: block; width: 100px; height: 100px"
+    >
+      0
+    </button>
+    <div style="margin-top: 20px; padding: 10px; background-color: #eee">
+      <h2>学习目标</h2>
+      <p>通过点击按钮，每次数据增加1</p>
+      <dl>
+        <dt>坑</dt>
+        <dd>
+          通过getElementById获取按钮标签时，ID名忘记使用引号，导致函数无法运行。
+        </dd>
+        <dd></dd>
+        <dt>填坑</dt>
+        <dd>通过控制台，逐步进行验证，发现此问题点。</dd>
+      </dl>
+    </div>
+    <!--上面安全的源码-->
+    <div style="margin-top: 20px; padding: 10px; background-color: #eee">
+      <p>以下是上面案例的源代码：</p>
+      <xmp>
+	      <body>
+	        <button id="dzs" onclick="dianZan()" style="display:block;width:100px;height:100px;">0</button>
+    	    <script>
+          function dianZan(){
+            let dianZanShuBiaoQian = window.document.getElementById('dzs');
+            let dianZanShu = parseInt(dianZanShuBiaoQian.innerText);
+            let xinShuZi = dianZanShu + 1;
+            dianZanShuBiaoQian.innerText = xinShuZi;
+            return; 
+          }
+          </script>
+        </body>
+	    </xmp>
+    </div>
+    <!--以下源码是另一个安全的。-->
+    <div
+      style="
+        margin-top: 20px;
+        padding: 10px;
+        width: 777px;
+        background-color: rgba(0, 155, 255, 0.2);
+      "
+    >
+      <p>以下代码案例是，模拟实际通过数据库增加或减少点赞数</p>
+      <ul>
+        <li>函数两个入参，用户信息和视频信息</li>
+        <li>从数据库获取该用户在该视频中的点赞记录</li>
+        <li>判断点赞记录是否存在</li>
+        <li>存在，则视频点赞数减1</li>
+        <li>删除数据库中点赞记录</li>
+        <li>把减1后的数据重新赋值显示</li>
+        <li>若，点赞数不存在</li>
+        <li>数据库中获取点赞数并加1</li>
+        <li>在数据库中添加点赞记录</li>
+        <li>把加1后的数据得新赋值显示</li>
+      </ul>
+      <xmp>
+        <body style="margin: 0;">
+      	  <button id="dzs" onclick="dianZan()">0</button>
+          <script>
+            function dianZan(uid,bv){
+              let jiLu = database.get('点赞记录',uid,bv);
+              if(jiLu){
+                let dianZanShu = database.jian('点赞数',bv,1);
+                database.shanChu('点赞记录',uid,bv);
+                document.getElementById('dzs').innerText = dianZanShu;
+              } else {
+                let dianZanShu = database.jia('点赞数',bv,1);
+                database.tianJia('点赞数',uid,bv);
+                document.getElementById('dzs').innerText = dianZanShu;
+              }
+            }
+          </script>
+        </body></xmp>
+    </div>
+    <!--页面实际的js代码模块-->
+    <script>
+      function dianZan() {
+        let dianZanShuBiaoQian = window.document.getElementById("dzs");
+        let dianZanShu = parseInt(dianZanShuBiaoQian.innerText);
+        let xinShuZi = dianZanShu + 1;
+        dianZanShuBiaoQian.innerText = xinShuZi;
+        return;
+      }
+    </script>
+  </body>
+</html>
