@@ -9,7 +9,7 @@
       button {
         width: 200px;
         height: 200px;
-        backgroung-color: #fdf;
+        background-color: #fdf;
         font-size: 50px;
       }
     </style>
@@ -45,9 +45,10 @@
     <!--上面安全的源码-->
     <div style="margin-top: 20px; padding: 10px; background-color: #eee">
       <p>以下是上面案例的源代码：</p>
-      <xmp>
+      <pre><code>
+      <!-- <xmp> -->
 	      <body>
-	        <button id="dzs" onclick="dianZan()" style="display:block;width:100px;height:100px;">0</button>
+	        <button id="dzs1" onclick="dianZan()" style="display:block;width:100px;height:100px;">0</button>
     	    <script>
           function dianZan(){
             let dianZanShuBiaoQian = window.document.getElementById('dzs');
@@ -58,9 +59,10 @@
           }
           </script>
         </body>
-	    </xmp>
+	    <!-- </xmp> -->
+    </code></pre>
     </div>
-    <!--以下源码是另一个安全的。-->
+    <!--以下源码是另一个案例的。-->
     <div
       style="
         margin-top: 20px;
@@ -82,9 +84,10 @@
         <li>在数据库中添加点赞记录</li>
         <li>把加1后的数据得新赋值显示</li>
       </ul>
+      <pre><code>
       <xmp>
         <body style="margin: 0;">
-      	  <button id="dzs" onclick="dianZan()">0</button>
+      	  <button id="dzs2" onclick="dianZan()">0</button>
           <script>
             function dianZan(uid,bv){
               let jiLu = database.get('点赞记录',uid,bv);
@@ -100,6 +103,7 @@
             }
           </script>
         </body></xmp>
+      </code></pre>
     </div>
     <!--页面实际的js代码模块-->
     <script>
